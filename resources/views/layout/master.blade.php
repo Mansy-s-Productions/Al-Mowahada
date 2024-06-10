@@ -21,15 +21,15 @@
     <link rel="stylesheet" href="{{ asset('assets/css/aos.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/tg-cursor.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css" integrity="sha512-OTcub78R3msOCtY3Tc6FzeDJ8N9qvQn1Ph49ou13xgA9VsH9+LRxoFU6EqLhW4+PKRfU+/HReXmSZXHEkpYoOA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css" integrity="sha512-OTcub78R3msOCtY3Tc6FzeDJ8N9qvQn1Ph49ou13xgA9VsH9+LRxoFU6EqLhW4+PKRfU+/HReXmSZXHEkpYoOA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     @if(app()->getLocale() == 'ar')
         <link rel="stylesheet" href="{{ asset('assets/css/mainAr.css') }}">
     @endif
     @if (app()->environment('local'))
-    @vite('resources/scss/main.scss')
+    @vite('resources/scss/style.scss')
     @else
-    <link rel="stylesheet" href="{{ url('/build/main.css') }}">
+    <link rel="stylesheet" href="{{ url('/build/style.css') }}">
     @endif
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LT6JSE6ELT"></script>
@@ -46,7 +46,7 @@
     <div id="preloader">
         <div id="loader" class="loader">
             <div class="loader-container">
-                <div class="loader-icon"><img src="{{ asset('assets/img/logo/logo.png') }}" alt="Preloader"></div>
+                <div class="loader-icon"><img src="{{ asset('assets/img/logo/logo-preloader.png') }}" alt="Preloader"></div>
             </div>
         </div>
     </div>
@@ -380,11 +380,11 @@
     <script>
         SVGInject(document.querySelectorAll("img.injectable"));
     </script>
-     @if (app()->environment('local'))
-     @vite('resources/js/app.js');
-     @else
-    <script src="{{ url('/build/app.js') }}"></script>
-     @endif
+    @if (app()->environment('local'))
+    @vite('resources/js/app.js');
+    @else
+        <script src="{{ url('/build/main.js') }}"></script>
+    @endif
     <script>
         $('.owl-carousel').owlCarousel({
     loop:true,

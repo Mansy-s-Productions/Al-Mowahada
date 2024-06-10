@@ -149,7 +149,7 @@ const swiper = new Swiper('.swiper', {
 	=        Slider Active Two	      =
 =============================================*/
 var sliderSwiper = new Swiper('.slider-active-two', {
-
+ 
     spaceBetween: 0,
     effect: "fade",
     loop: true,
