@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 
 class BlogController extends Controller {
     public function getAll() {
-        $Blogs = Blog::Language()->latest()->get();
+        $Blogs = Blog::latest()->get();
 
         return view('blogs.all', compact('Blogs'));
     }

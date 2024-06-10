@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 
 class ServiceController extends Controller {
     public function getAll() {
-        $Services = Service::Language()->latest()->get();
+        $Services = Service::latest()->get();
 
         return view('services.all', compact('Services'));
     }

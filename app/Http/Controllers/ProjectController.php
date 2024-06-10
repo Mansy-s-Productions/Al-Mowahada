@@ -12,8 +12,8 @@ use Storage;
 
 class ProjectController extends Controller {
     public function getAll() {
-        $Categories = Category::Language()->latest()->get();
-        $Projects = Project::Language()->latest()->get();
+        $Categories = Category::latest()->get();
+        $Projects = Project::latest()->get();
 
         return view('projects.all', compact('Categories', 'Projects'));
     }
