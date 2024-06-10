@@ -27,12 +27,13 @@ return new class() extends Migration {
         });
 
         Schema::create('sessions', function (Blueprint $table): void {
-            $table->string('id')->primary();
-            $table->foreignId('user_id')->nullable()->index();
+            $table->string('id', 191)->notNull();
+            $table->bigInteger('user_id')->unsigned()->nullable();
             $table->string('ip_address', 45)->nullable();
             $table->text('user_agent')->nullable();
-            $table->longText('payload');
-            $table->integer('last_activity')->index();
+            $table->longText('payload')->notNull();
+            $table->integer('last_activity')->notNull();
+            $table->primary(['id']);
         });
     }
 
