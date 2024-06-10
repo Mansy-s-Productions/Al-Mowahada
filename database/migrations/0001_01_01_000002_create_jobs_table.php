@@ -20,26 +20,21 @@ return new class() extends Migration {
         });
 
         Schema::create('job_batches', function (Blueprint $table): void {
-            $table->string('id', 191)->notNull(); // Specify the length as 191
-            $table->string('name', 191)->notNull(); // Specify the length as 191
-            $table->integer('total_jobs')->notNull();
-            $table->integer('pending_jobs')->notNull();
-            $table->integer('failed_jobs')->notNull();
-            $table->longText('failed_job_ids')->notNull();
+            $table->string('id')->primary();
+            $table->string('name');
+            $table->integer('total_jobs');
+            $table->integer('pending_jobs');
+            $table->integer('failed_jobs');
+            $table->longText('failed_job_ids');
             $table->mediumText('options')->nullable();
             $table->integer('cancelled_at')->nullable();
-            $table->integer('created_at')->notNull();
+            $table->integer('created_at');
             $table->integer('finished_at')->nullable();
-            $table->primary(['id']);
         });
 
         Schema::create('failed_jobs', function (Blueprint $table): void {
             $table->id();
-            // Add the uuid column
-            $table->uuid('uuid')->nullable()->after('id');
-
-            // Add a unique constraint on the uuid column
-            $table->unique('uuid', 'failed_jobs_uuid_unique');
+            $table->string('uuid')->unique();
             $table->text('connection');
             $table->text('queue');
             $table->longText('payload');
