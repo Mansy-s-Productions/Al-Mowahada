@@ -36,7 +36,7 @@ return new class() extends Migration {
         Schema::create('failed_jobs', function (Blueprint $table): void {
             $table->id();
             // Add the uuid column
-            $table->string('uuid', 36)->nullable()->after('id');
+            $table->uuid('uuid')->nullable()->after('id');
 
             // Add a unique constraint on the uuid column
             $table->unique('uuid', 'failed_jobs_uuid_unique');
