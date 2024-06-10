@@ -66,7 +66,6 @@
                                 <ul class="list-wrap">
                                     <li><a href="mailto:info@almuahada.com">info@almuahada.com</a></li>
                                     <li><a href="tel:+966544782477">+966 544 782 477</a></li>
-
                                 </ul>
                             </div>
                         </div>
