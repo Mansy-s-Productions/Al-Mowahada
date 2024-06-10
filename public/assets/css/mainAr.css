@@ -1,0 +1,81 @@
+/* CSS Index
+==============================================
+
+    01. Arabic Styles
+
+==============================================*/
+/*============================================
+/*  ROOT Direction
+==============================================*/
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap');
+
+* {
+    font-family: "Almarai", sans-serif !important;
+}
+body {
+  direction: rtl;
+}
+
+.offCanvas-toggle {
+  margin-left: 40px;
+    padding-left: 40px;
+}
+
+
+.offCanvas-toggle::before {
+  left: 0;
+  right: auto;
+}
+
+.section__title .number {
+  right: 0px;
+}
+.services__area .view-service-btn{
+  text-align: left;
+}
+
+.renova-left-arrow:before {
+  content: '\e80b';
+}
+
+.renova-right-arrow:before {
+  content: '\e80c';
+}
+.project__area  .col-lg-6:nth-child(0) {
+  justify-content: flex-start;
+}
+.project__area .col-lg-6:nth-child(1) {
+  justify-content: flex-end;
+}
+.accordion-button {
+  text-align: right;
+}
+.faq__img-content {
+  right: 0;
+  left: auto;
+}
+.breadcrumb__bg {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+.breadcrumb__bg .col-lg-12{
+ direction: ltr;
+}
+.breadcrumb__content .title , .breadcrumb__content .breadcrumb {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+.breadcrumb__content .breadcrumb {
+  text-align: right;
+}
+
+.tgmenu__navbar-wrap ul li .sub-menu li {
+    text-align: right;
+}
+.tgmenu__navbar-wrap ul li a {
+        letter-spacing: 0px !important
+}
+
+.choose__tab-wrap .nav-link {
+    text-align: right 
+}
