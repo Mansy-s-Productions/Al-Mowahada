@@ -28,8 +28,8 @@
     @endif
     @if (app()->environment('local'))
     @vite('resources/scss/main.scss')
-        <link rel="stylesheet" href="{{ url('/build/main.css') }}">
     @else
+    <link rel="stylesheet" href="{{ url('/build/main.css') }}">
     @endif
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LT6JSE6ELT"></script>
@@ -384,7 +384,6 @@
      @vite('resources/js/app.js');
      @else
     <script src="{{ url('/build/app.js') }}"></script>
-
      @endif
     <script>
         $('.owl-carousel').owlCarousel({
