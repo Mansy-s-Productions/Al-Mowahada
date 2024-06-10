@@ -10,9 +10,10 @@ return new class() extends Migration {
      */
     public function up(): void {
         Schema::create('cache', function (Blueprint $table): void {
-            $table->string('key')->primary();
-            $table->mediumText('value');
-            $table->integer('expiration');
+            $table->string('key', 191)->notNull(); // Specify the length as 191
+            $table->mediumText('value')->notNull();
+            $table->integer('expiration')->notNull();
+            $table->primary(['key']);
         });
 
         Schema::create('cache_locks', function (Blueprint $table): void {
