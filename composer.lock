@@ -4,11 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-    "content-hash": "af11fb5dc69e016743a604ff0a7209aa",
-=======
     "content-hash": "3ef20c161c32c807c521dc46e11896ff",
->>>>>>> 8d00fc3decfce0b2b0a678f61753a989e6da8bff
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -1141,8 +1137,6 @@
         {
             "name": "jean85/pretty-package-versions",
             "version": "2.0.6",
-<<<<<<< HEAD
-=======
             "source": {
                 "type": "git",
                 "url": "https://github.com/Jean85/pretty-package-versions.git",
@@ -1202,7 +1196,6 @@
         {
             "name": "laravel/framework",
             "version": "v11.2.0",
->>>>>>> 8d00fc3decfce0b2b0a678f61753a989e6da8bff
             "source": {
                 "type": "git",
                 "url": "https://github.com/Jean85/pretty-package-versions.git",
@@ -3609,8 +3602,6 @@
         {
             "name": "sentry/sentry",
             "version": "4.7.0",
-<<<<<<< HEAD
-=======
             "source": {
                 "type": "git",
                 "url": "https://github.com/getsentry/sentry-php.git",
@@ -3789,7 +3780,6 @@
         {
             "name": "symfony/clock",
             "version": "v7.0.5",
->>>>>>> 8d00fc3decfce0b2b0a678f61753a989e6da8bff
             "source": {
                 "type": "git",
                 "url": "https://github.com/getsentry/sentry-php.git",
@@ -5821,9 +5811,6 @@
         },
         {
             "name": "symfony/psr-http-message-bridge",
-<<<<<<< HEAD
-            "version": "v7.0.7",
-=======
             "version": "v7.0.6",
             "source": {
                 "type": "git",
@@ -5908,7 +5895,6 @@
         {
             "name": "symfony/routing",
             "version": "v7.0.6",
->>>>>>> 8d00fc3decfce0b2b0a678f61753a989e6da8bff
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/psr-http-message-bridge.git",
