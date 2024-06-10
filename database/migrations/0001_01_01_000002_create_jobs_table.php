@@ -20,7 +20,7 @@ return new class() extends Migration {
         });
 
         Schema::create('job_batches', function (Blueprint $table): void {
-            $table->string('id')->primary();
+            $table->string('id', 36)->primary(); // reduced the length to 36 characters
             $table->string('name');
             $table->integer('total_jobs');
             $table->integer('pending_jobs');
