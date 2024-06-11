@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Service extends Model {
     use HasFactory;
@@ -29,9 +30,8 @@ class Service extends Model {
     public function SubServices() {
         return $this->hasMany(Service::class, 'parent_id');
     }
-
     public function getImagePathAttribute() {
-        return url('storage/services/' . $this->image);
+        return Storage::url('services/' . $this->image);
     }
 
     public function getLocalTitleAttribute(){
