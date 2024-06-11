@@ -29,7 +29,7 @@
     @if (app()->environment('local'))
     @vite('resources/scss/style.scss')
     @else
-    <link rel="stylesheet" href="{{ url('/build/style.css') }}?v={{ filemtime(url('/build/style.css')) }}">
+    <link rel="stylesheet" href="{{ asset('build/style.css') }}?v={{ filemtime(public_path('build/style.css')) }}">
 
     @endif
     <!-- Google tag (gtag.js) -->
