@@ -29,8 +29,7 @@
     @if (app()->environment('local'))
     @vite('resources/scss/style.scss')
     @else
-    <link rel="stylesheet" href="{{ asset('build/style.css') }}?v={{ filemtime(public_path('build/style.css')) }}">
-
+    <link rel="stylesheet" href="{{ url('build/style.css') }}?v={{ file_exists(base_path('build/style.css')) ? filemtime(base_path('build/style.css')) : time() }}">
     @endif
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LT6JSE6ELT"></script>
