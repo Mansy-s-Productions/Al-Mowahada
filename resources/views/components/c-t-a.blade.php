@@ -21,8 +21,5 @@
             </div>
         </div>
     </div>
-    <div class="cta__shape">
-        <img src="{{ asset('assets/img/images/cta_shape.png') }}" alt="shape" data-aos="fade-down-left" data-aos-delay="400">
-    </div>
 </section>
 <!-- cta-area-end -->

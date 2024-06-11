@@ -21,7 +21,42 @@ return [
     'about_section_2_title' => 'We pride ourselves on guiding our clients through key strategic decisions',
     'about_section_2_content' => ' <p>Our mission at EMAAR Al Muahada is to provide exceptional contracting and trading services, delivering innovative solutions that exceed client expectations while contributing positively to the development of communities and infrastructure.</p>
     <p>Our company, EMAAR Al Muahada Construction and Trading, has a strong track record of facilitating international business endeavors. We are known for our innovative approach and client-centric philosophy. By combining cutting-edge solutions with personalized service, we ensure that each client receives tailored strategies and exceptional support that meet their unique needs and aspirations. Our relentless pursuit of excellence, along with a strong focus on customer satisfaction, sets us apart as a reliable and successful presence in the global business landscape',
-    'about_section_3_title' => 'We are guided by a set of core values that prioritize integrity, transparency, and a client-first approach',
-    'about_section_3_content' => '<p>At EMAAR Al Muahada Construction and Trading, we are guided by a set of core values that prioritize integrity, transparency, and a client-first approach. Our unwavering commitment to exceeding customer expectations drives everything we do, ensuring that every partnership is built on trust, collaboration, and a shared vision for mutual success.</p>
-    <p>We invite you to embark on a transformative journey with EMAAR Al Muahada Construction and Trading where every partnership is a testament to our dedication to your growth and prosperity in the international marketplace. Experience the difference of working with a team that is not just committed to your success but truly invested in your long-term success and satisfaction.</p>',
+    'about_section_3_title' => 'At Al Muahada, our values are the guiding principles that shape our beliefs, behaviors, and
+    decisions. They can vary widely among individuals, but some common values include:',
+    'about_section_3_content' => '
+        <ul>
+        <li>Integrity:
+            <p><br>Being honest, ethical, and consistent in actions and words.</p>
+        </li>
+
+        <li>Respect:
+        <p><br>Treating others with consideration, dignity, and empathy.</p>
+        </li>
+        <li>Responsibility:
+        <p><br> Taking ownership of one\'s actions and obligations.</p>
+        </li>
+        <li>Compassion:
+        <p> <br>Showing kindness and understanding towards others\' chalenges and suffering.</p>
+        </li>
+        <li>Equality:
+        <p> <br>Believing in fairness and justice for all, regardless of differences.</p>
+        </li>
+        <li>Innovation:
+        <p> <br>Embracing creativity and new ideas to drive progress and growth.</p>
+        </li>
+        <li>Teamwork:
+        <p> <br>Collaborating effectively with others to achieve common goals.</p>
+        </li>
+        <li>Excellence:
+        <p> <br> Striving for the highest quality and performance in all endeavors.</p>
+        </li>
+        <li>Adaptability:
+        <p> <br>Being flexible and open to change in diverse situations.</p>
+        </li>
+        <li>Sustainability:
+        <p> <br>Acting in ways that preserve and protect the environment and future generations.</p>
+        </li>
+        </ul>
+
+    ',
 ];
