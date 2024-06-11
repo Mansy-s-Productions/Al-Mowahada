@@ -17,10 +17,10 @@
         &-two {
             background-size: cover;
             background-position: center;
-            min-height: 900px;
+            min-height: 800px;
             @include flexbox();
             align-items: center;
-            padding: 120px 0;
+            padding: 0px 0 120px;
             position: relative;
             z-index: 1;
             @media #{$xl} {
