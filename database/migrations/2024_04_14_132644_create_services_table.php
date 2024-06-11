@@ -14,10 +14,13 @@ return new class() extends Migration {
             $table->string('image')->default('placeholder.png');
             $table->string('title');
             $table->string('slug');
-            $table->text('upper_content')->nullable();
-            $table->text('lower_content')->nullable();
+            $table->text('description');
+            $table->text('content');
             $table->integer('user_id');
             $table->integer('is_featured')->default(0);
+            $table->string('main_category');
+            $table->string('type')->default('main');
+            $table->string('parent_id')->nullable();
             $table->timestamps();
         });
     }

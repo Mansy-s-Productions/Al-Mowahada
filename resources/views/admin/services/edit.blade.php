@@ -32,18 +32,32 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-form-label">Upper Content:</label>
-                                    <textarea name="upper_content" class="editor" cols="30" rows="10">{!! $Service->upper_content !!}</textarea>
+                                    <label class="col-form-label">Content:</label>
+                                    <textarea name="content" class="editor" cols="30" rows="10">{!! $Service->content !!}</textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-form-label">Lower Content:</label>
-                                    <textarea name="lower_content" class="editor" cols="30" rows="10">{!! $Service->lower_content !!}</textarea>
+                                    <label class="form-control-label">Category <span class="text-danger">*</span></label>
+                                    <select class="form-control" name="main_category" required>
+                                        <option @if($Service->main_category == 'contracting-service') selected @endif value="contracting-service">Contracting Service</option>
+                                        <option @if($Service->main_category == 'trading-service') selected @endif value="trading-service">Trading Service</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-control-label">Language <span class="text-danger">*</span></label>
-                                    <select class="form-control" name="lang" required>
-                                        <option @if($Service->lang == 'ar') selected @endif  value="ar">Arabic</option>
-                                        <option @if($Service->lang == 'en') selected @endif value="en">English</option>
+                                    <label class="form-control-label">Type <span class="text-danger">*</span></label>
+                                    <select class="form-control" name="type" id="type" required>
+                                        <option @if($Service->type == 'main') selected @endif value="main">Main Service</option>
+                                        <option @if($Service->type == 'sub') selected @endif value="sub">Sub Service</option>
+                                    </select>
+                                </div>
+                                <div class="form-group main-services" @if($Service->type == 'main')  style="display: none" @endif>
+                                    <label class="form-control-label">Main Service <span class="text-danger">*</span></label>
+                                    <select class="form-control" name="parent_id">
+                                        <option value="">Select main</option>
+                                        @forelse ($MainServices as $MainService)
+                                            <option @if($Service->parent_id == $MainService->id) selected @endif value="{{$MainService->id}}">{{$MainService->title}}</option>
+                                        @empty
+                                            <p>Add main services</p>
+                                        @endforelse
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -66,5 +80,15 @@
         tinymce.init({
           selector: 'textarea.editor'
         });
+
+        $('#type').change(function() {
+            if ($(this).val() === 'sub') {
+                    $('.main-services').slideDown('fast');
+                    $('[name="parent_id"]').val('');
+                } else if ($(this).val() === 'main') {
+                    $('.main-services').slideUp('fast');
+                    $('[name="parent_id"]').val('');  // Corrected selector for name attribute
+                }
+            });
     </script>
 @endsection

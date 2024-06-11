@@ -31,23 +31,37 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-form-label">Upper Content:</label>
-                                    <textarea name="upper_content" class="editor" cols="30" rows="10"></textarea>
+                                    <label class="col-form-label">Content:</label>
+                                    <textarea name="content" class="editor" cols="30" rows="10"></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-form-label">Lower Content:</label>
-                                    <textarea name="lower_content" class="editor" cols="30" rows="10"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-control-label">Language <span class="text-danger">*</span></label>
-                                    <select class="form-control" name="lang" required>
-                                        <option value="ar">Arabic</option>
-                                        <option value="en">English</option>
+                                    <label class="form-control-label">Category <span class="text-danger">*</span></label>
+                                    <select class="form-control" name="main_category" required>
+                                        <option value="contracting-service">Contracting Service</option>
+                                        <option value="trading-service">Trading Service</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <input type="checkbox" class="mr-2" name="is_featured">
-                                    <label class="col-form-label">Featured?</label>
+                                    <label class="form-control-label">Type <span class="text-danger">*</span></label>
+                                    <select class="form-control" name="type" id="type" required>
+                                        <option value="main">Main Service</option>
+                                        <option value="sub">Sub Service</option>
+                                    </select>
+                                </div>
+                                <div class="form-group main-services" style="display: none">
+                                    <label class="form-control-label">Main Service <span class="text-danger">*</span></label>
+                                    <select class="form-control" name="parent_id">
+                                        <option value="">Select main</option>
+                                        @forelse ($MainServices as $Service)
+                                            <option value="{{$Service->id}}">{{$Service->title}}</option>
+                                        @empty
+                                            <p>Add main services</p>
+                                        @endforelse
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <input type="checkbox" class="mr-2" name="is_featured" id="is_featured">
+                                    <label class="col-form-label" for="is_featured">Featured?</label>
                                 </div>
                                 <button class="btn btn-primary">Submit</button>
                             </form>
@@ -62,8 +76,17 @@
 @section('external_scripts')
     <script src="https://cdn.tiny.cloud/1/qjf6pr8mycegjxz2i8pb1n9qh36mw3ysf8upxl72jjw6252c/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
-        tinymce.init({
-          selector: 'textarea.editor'
-        });
+            tinymce.init({
+                selector: 'textarea.editor'
+            });
+        $('#type').change(function() {
+            if ($(this).val() === 'sub') {
+                    $('.main-services').slideDown('fast');
+                    $('[name="parent_id"]').val('');
+                } else if ($(this).val() === 'main') {
+                    $('.main-services').slideUp('fast');
+                    $('[name="parent_id"]').val('');  // Corrected selector for name attribute
+                }
+            });
     </script>
 @endsection

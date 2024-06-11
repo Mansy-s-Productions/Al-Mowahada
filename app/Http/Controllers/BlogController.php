@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Blog_Local;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -34,7 +35,6 @@ class BlogController extends Controller {
             'description' => 'required',
             'content' => 'required',
             'image' => 'required',
-            'lang' => 'required',
         ]);
         $BlogData = $r->except(['_token', 'image']);
         // Generate the slug
@@ -59,7 +59,6 @@ class BlogController extends Controller {
         $r->validate([
             'title' => 'required',
             'content' => 'required',
-            'lang' => 'required',
         ]);
         $BlogData = $r->except(['_token']);
         if ($r->hasFile('image')) {
@@ -70,6 +69,35 @@ class BlogController extends Controller {
         }
         $Blog->update($BlogData);
 
+        return redirect()->route('admin.blogs.all');
+    }
+
+
+    public function getLocalize(Blog $Blog) {
+        $LocalBlog = Blog_Local::where('blog_id', $Blog->id)->first();
+        if ($LocalBlog) {
+            return view('admin.blogs.localize', compact('Blog', 'LocalBlog'));
+        }else{
+            return view('admin.blogs.localize', compact('Blog'));
+        }
+    }
+
+    public function postLocalize(Request $r, Blog $Blog) {
+        $r->validate([
+            'title_value' => 'required',
+            'description_value' => 'required',
+            'content_value' => 'required',
+        ]);
+        $LocalData = $r->except(['_token']);
+        $TheLocal = Blog_Local::where('blog_id' , $Blog->id)->first();
+        $LocalData['blog_id'] = $Blog->id;
+        if($TheLocal){
+            //Update
+            $TheLocal->update($LocalData);
+        }else{
+            //Create
+            Blog_Local::create($LocalData);
+        }
         return redirect()->route('admin.blogs.all');
     }
 

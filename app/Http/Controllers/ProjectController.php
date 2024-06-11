@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Project;
+use App\Models\Project_Local;
 use App\Models\ProjectImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -44,7 +45,6 @@ class ProjectController extends Controller {
             'title' => 'required',
             'content' => 'required',
             'image' => 'required',
-            'lang' => 'required',
             'location' => 'required',
         ]);
         $ProjectData = $r->except(['_token', 'image']);
@@ -72,7 +72,7 @@ class ProjectController extends Controller {
         $r->validate([
             'title' => 'required',
             'content' => 'required',
-            'lang' => 'required',
+
         ]);
         $ProjectData = $r->except(['_token']);
         if ($r->hasFile('image')) {
@@ -128,5 +128,33 @@ class ProjectController extends Controller {
         }else{
             return back()->withErrors('This Image already deleted');
         }
+    }
+
+    public function getLocalize(Project $Project) {
+        $LocalProject = Project_Local::where('project_id', $Project->id)->first();
+        if ($LocalProject) {
+            return view('admin.projects.localize', compact('Project', 'LocalProject'));
+        }else{
+            return view('admin.projects.localize', compact('Project'));
+        }
+    }
+
+    public function postLocalize(Request $r, Project $Project) {
+        $r->validate([
+            'title_value' => 'required',
+            'description_value' => 'required',
+            'content_value' => 'required',
+        ]);
+        $LocalData = $r->except(['_token']);
+        $TheLocal = Project_Local::where('project_id' , $Project->id)->first();
+        $LocalData['project_id'] = $Project->id;
+        if($TheLocal){
+            //Update
+            $TheLocal->update($LocalData);
+        }else{
+            //Create
+            Project_Local::create($LocalData);
+        }
+        return redirect()->route('admin.projects.all');
     }
 }

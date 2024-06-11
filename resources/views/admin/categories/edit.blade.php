@@ -17,13 +17,6 @@
                                     <label class="col-form-label">Title</label>
                                     <input name="title" type="text" class="form-control" value="{{ $Category->title }}" required >
                                 </div>
-                                <div class="form-group">
-                                    <label class="form-control-label">Language <span class="text-danger">*</span></label>
-                                    <select class="form-control" name="lang" required>
-                                        <option @if($Category->lang == 'ar') selected @endif  value="ar">Arabic</option>
-                                        <option @if($Category->lang == 'en') selected @endif value="en">English</option>
-                                    </select>
-                                </div>
                                 <button class="btn btn-primary">Submit</button>
                             </form>
                         </div>

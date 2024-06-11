@@ -23,31 +23,35 @@
     </div>
     <!-- breadcrumb-area-end -->
 
-    <!-- services-area -->
     <section class="services__area-two section-pt-120 section-pb-95">
         <div class="container">
-            <div class="row gutter-24 justify-content-center">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="project__menu-nav">
+                        <button class="active" data-filter="*">ALL SERVICES</button>
+                        <button class="" data-filter=".contracting-service">COVTRACTING SERVICES</button>
+                        <button class="" data-filter=".trading-service">TRADING SERVICES</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row gutter-24 project-active-two">
                 @forelse ($Services as $Service)
-                    <div class="col-lg-4 col-md-6">
-                        <div class="services__item-two shine__animate-item">
-                            <div class="services__thumb-two">
-                                <a href="{{ route('services.single' , [ $Service->id, $Service->slug ]) }}" class="shine__animate-link">
-                                    <img src="{{ $Service->imagePath }}" alt="{{ $Service->title }}">
-                                </a>
-                            </div>
-                            <div class="services__content-two">
-                                <h4 class="title"><a href="{{ route('services.single' , [ $Service->id, $Service->slug ]) }}">{{ $Service->title }}</a></h4>
-                                <p>{{ $Service->description }}</p>
-                            </div>
+                <div class="col-lg-4 col-md-6 grid-item grid-sizer {{$Service->main_category}}">
+                    <div class="services__item-two shine__animate-item">
+                        <div class="services__thumb-two">
+                            <img src="{{ $Service->imagePath }}" alt="{{ $Service->title }}">
+                        </div>
+                        <div class="services__content-two">
+                            <h4 class="title">{{ $Service->title }}</h4>
+                            <p>{{ $Service->description }}</p>
                         </div>
                     </div>
-                @empty
-                    <p>@lang('services.no_services')</p>
-                @endforelse
+                </div>
+            @empty
+                <p>@lang('services.no_services')</p>
+            @endforelse
             </div>
         </div>
     </section>
-    <!-- services-area-end -->
-
     <x-CTA />
 @endsection

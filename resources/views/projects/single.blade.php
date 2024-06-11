@@ -63,17 +63,29 @@
                                         </div>
                                     </div>
                                 @endif
-                                @if($Project->address)
+                                @if($Project->location)
                                     <div class="project__info-item">
                                         <div class="icon">
                                             <i class="fas fa-map-marker-alt"></i>
                                         </div>
                                         <div class="content">
                                             <span>@lang('projects.address')</span>
-                                            <h4 class="title">{{ $Project->address }}</h4>
+                                            <h4 class="title">{{ $Project->location }}</h4>
                                         </div>
                                     </div>
                                 @endif
+                                @if($Project->bua)
+                                <div class="project__info-item">
+                                    <div class="icon">
+                                        <i class="fa fa-building" aria-hidden="true"></i>
+
+                                    </div>
+                                    <div class="content">
+                                        <span>@lang('projects.bua')</span>
+                                        <h4 class="title">{{ $Project->bua }}</h4>
+                                    </div>
+                                </div>
+                            @endif
                             </div>
                         </div>
                     </div>

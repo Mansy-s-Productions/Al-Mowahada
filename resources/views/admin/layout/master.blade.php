@@ -40,9 +40,9 @@
         ***********************************-->
         <div class="nav-header">
             <a href="{{ route('admin.home') }}" class="brand-logo">
-                <img class="logo-abbr" src="{{ asset('admin/images/logo.png') }}" alt="">
-                <img class="logo-compact" src="{{ asset('admin/images/logo-text.png') }}" alt="">
-                <img class="brand-title" src="{{ asset('admin/images/logo-text.png') }}" alt="">
+                <img class="logo-abbr" src="{{ asset('assets/img/logo/logo-preloader.png') }}" alt="">
+                <img class="logo-compact" src="{{ asset('assets/img/logo/logo-text.png') }}" alt="">
+                <img class="brand-title" src="{{ asset('assets/img/logo/logo-text.png') }}" alt="">
             </a>
 
             <div class="nav-control">
@@ -154,10 +154,42 @@
                 </ul>
 				<div class="copyright">
 					<p><strong>EMAAR Al Mowahada CO. Admin Panel</strong> © 2024 All Rights Reserved</p>
-					<p>Made with <span class="heart"></span> by <a href="https://productions.naqrah.net">Naqrah Productions</a></p>
+					<p>Made with <span class="heart"></span> by <a href="https://mohamedmansy.com">Mansy Productions</a></p>
 				</div>
 			</div>
         </div>
+        @if (session()->has('success'))
+<div class="alert alert-success left-icon-big alert-dismissible fade show">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span><i class="mdi mdi-close"></i></span>
+    </button>
+    <div class="media">
+        <div class="alert-left-icon-big">
+            <span><i class="mdi mdi-check-circle-outline"></i></span>
+        </div>
+        <div class="media-body">
+            <h5 class="mt-1 mb-2">Success</h5>
+            <p class="mb-0">{{ session('success') }}</p>
+        </div>
+    </div>
+</div>
+@endif
+@if ($errors->any())
+<div class="alert alert-warning left-icon-big alert-dismissible fade show">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span><i class="mdi mdi-close"></i></span>
+    </button>
+    <div class="media">
+        <div class="alert-left-icon-big">
+            <span><i class="mdi mdi-help-circle-outline"></i></span>
+        </div>
+        <div class="media-body">
+            <h5 class="mt-1 mb-2">Error</h5>
+            @foreach ($errors->all() as $error)
+            <p class="mb-0">{{ $error }}</p>
+            @endforeach
+        </div>
+    </div>
+</div>
+@endif
         <!--**********************************
             Sidebar end
         ***********************************-->

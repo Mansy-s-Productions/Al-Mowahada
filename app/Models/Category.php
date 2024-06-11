@@ -18,4 +18,19 @@ class Category extends Model {
     public function User() {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function getLocalTitleAttribute(){
+        if (isset($_COOKIE['lang']) && $_COOKIE['lang'] == 'ar') {
+            $Locale = Category_Local::where('blog_id' , $this->id)->where('locale' , 'ar')->first();
+            if($Locale){
+                return $Locale->title_value;
+            }else{
+                return $this->title;
+            }
+        }
+        else{
+            return $this->title;
+        }
+    }
+
 }

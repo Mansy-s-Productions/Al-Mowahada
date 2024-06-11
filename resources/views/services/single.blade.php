@@ -33,11 +33,6 @@
                         <img src="{{ $Service->imagePath }}" alt="img" class="wow img-custom-anim-right animated" data-wow-duration="1.5s" data-wow-delay="0.2s">
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="about__content-three services__details-content">
-                        {!! $Service->upper_content !!}
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -85,7 +80,7 @@
                 </div>
             </div>
             <div class="project__details-bottom-content">
-                {!! $Service->lower_content !!}
+                {!! $Service->content !!}
             </div>
         </div>
     </section>

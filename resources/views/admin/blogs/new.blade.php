@@ -26,13 +26,6 @@
                                         <label class="custom-file-label">Choose file</label>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="form-control-label">Language <span class="text-danger">*</span></label>
-                                    <select class="form-control" name="lang" required>
-                                        <option value="ar">Arabic</option>
-                                        <option value="en">English</option>
-                                    </select>
-                                </div>
                                 <div class="from-group">
                                     <label class="col-form-label">Description</label>
                                     <textarea name="description" class="form-control" cols="30" rows="10" maxlength="255" required></textarea>

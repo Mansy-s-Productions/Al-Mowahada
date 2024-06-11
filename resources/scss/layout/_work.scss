@@ -166,7 +166,11 @@
                 z-index: -2;
                 opacity: 0.55;
                 background: linear-gradient(180deg, #262626 8.61%, rgba(18, 18, 18, 0.00) 100%);
-            }
+                -webkit-transform: translateY(-50%) rotate(135deg);
+                -moz-transform: translateY(-50%) rotate(135deg);
+                -ms-transform: translateY(-50%) rotate(135deg);
+                -o-transform: translateY(-50%) rotate(135deg);
+}
             & span {
                 display: block;
                 text-transform: uppercase;

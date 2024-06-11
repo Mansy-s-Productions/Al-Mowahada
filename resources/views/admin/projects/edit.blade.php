@@ -48,7 +48,11 @@
                                             <a href="{{ route('admin.projectImage.delete', $Gallerys->id) }}" class="text-danger d-block">Delete image</a>
                                         </div>
                                     @endforeach
-                                    </div>
+                                </div>
+                                <div class="form-grop">
+                                    <label class="col-form-label">Description</label>
+                                    <textarea name="description" class="form-control" cols="20" rows="10" maxlength="255" required>{!! $Project->description !!}</textarea>
+                                </div>
                                 <div class="form-group">
                                     <label class="col-form-label">Content:</label>
                                     <textarea name="content" class="editor" cols="30" rows="10">{!! $Project->content !!}</textarea>
@@ -68,13 +72,6 @@
                                 <div class="form-group">
                                     <label class="col-form-label">BUA</label>
                                     <input name="bua" type="text" class="form-control" {{ $Project->bua }}>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-control-label">Language <span class="text-danger">*</span></label>
-                                    <select class="form-control" name="lang" required>
-                                        <option @if($Project->lang == 'ar') selected @endif  value="ar">Arabic</option>
-                                        <option @if($Project->lang == 'en') selected @endif value="en">English</option>
-                                    </select>
                                 </div>
                                 <button class="btn btn-primary">Submit</button>
                             </form>

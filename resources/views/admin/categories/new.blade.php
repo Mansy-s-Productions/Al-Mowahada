@@ -15,14 +15,7 @@
                                 @csrf
                                 <div class="form-group">
                                     <label class="col-form-label">Title</label>
-                                    <input name="title" type="text" class="form-control" required >
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-control-label">Language <span class="text-danger">*</span></label>
-                                    <select class="form-control" name="lang" required>
-                                        <option value="ar">Arabic</option>
-                                        <option value="en">English</option>
-                                    </select>
+                                    <input name="title" type="text" class="form-control" required>
                                 </div>
                                 <button class="btn btn-primary">Submit</button>
                             </form>

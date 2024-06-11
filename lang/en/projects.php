@@ -9,5 +9,6 @@ return [
     'clients' => 'Clients:',
     'category' => 'Category:',
     'date' => 'Date:',
-    'address' => 'Address:',
+    'address' => 'Location:',
+    'bua' => 'BUA:',
 ];

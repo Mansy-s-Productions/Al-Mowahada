@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Service;
+use App\Models\Service_Local;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 class ServiceController extends Controller {
     public function getAll() {
-        $Services = Service::latest()->get();
-
+        $Services = Service::where('type', 'main')->latest()->get();
         return view('services.all', compact('Services'));
     }
 
@@ -20,12 +20,12 @@ class ServiceController extends Controller {
     // Admin
     public function getAdminAll() {
         $Services = Service::latest()->get();
-
         return view('admin.services.all', compact('Services'));
     }
 
     public function getAdminNew() {
-        return view('admin.services.new');
+        $MainServices = Service::where('type', 'main')->get();
+        return view('admin.services.new', compact('MainServices'));
     }
 
     public function postAdminNew(Request $r) {
@@ -33,7 +33,7 @@ class ServiceController extends Controller {
             'title' => 'required',
             'image' => 'required',
             'description' => 'required|max:255',
-            'lang' => 'required',
+            'main_category' => 'required',
         ]);
 
         $ServiceData = $r->except(['_token', 'image', 'is_featured']);
@@ -53,14 +53,15 @@ class ServiceController extends Controller {
     }
 
     public function getAdminEdit(Service $Service) {
-        return view('admin.services.edit', compact('Service'));
+        $MainServices = Service::where('type', 'main')->get();
+        return view('admin.services.edit', compact('Service', 'MainServices'));
     }
 
     public function postAdminEdit(Request $r, Service $Service) {
         $r->validate([
             'title' => 'required',
             'description' => 'required|max:255',
-            'lang' => 'required',
+            'main_category' => 'required',
         ]);
 
         $ServiceData = $r->except(['_token', 'image', 'is_featured']);
@@ -78,6 +79,34 @@ class ServiceController extends Controller {
         return redirect()->route('admin.services.all');
     }
 
+
+    public function getLocalize(Service $Service) {
+        $LocalService = Service_Local::where('service_id', $Service->id)->first();
+        if ($LocalService) {
+            return view('admin.services.localize', compact('Service', 'LocalService'));
+        }else{
+            return view('admin.services.localize', compact('Service'));
+        }
+    }
+
+    public function postLocalize(Request $r, Service $Service) {
+        $r->validate([
+            'title_value' => 'required',
+            'description_value' => 'required',
+            'content_value' => 'required',
+        ]);
+        $LocalData = $r->except(['_token']);
+        $TheLocal = Service_Local::where('service_id' , $Service->id)->first();
+        $LocalData['service_id'] = $Service->id;
+        if($TheLocal){
+            //Update
+            $TheLocal->update($LocalData);
+        }else{
+            //Create
+            Service_Local::create($LocalData);
+        }
+        return redirect()->route('admin.services.all');
+    }
     public function delete(Service $Service) {
         $Service->delete();
 

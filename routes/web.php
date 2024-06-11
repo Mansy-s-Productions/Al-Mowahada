@@ -52,16 +52,10 @@ Route::group(['prefix' => 'dashboard', 'middleware' => [isAdmin::class], 'as' =>
         Route::get('edit/{Service}', [ServiceController::class, 'getAdminEdit'])->name('services.getEdit');
         Route::post('edit/{Service}', [ServiceController::class, 'postAdminEdit'])->name('services.postEdit');
         Route::get('delete/{Service}', [ServiceController::class, 'delete'])->name('services.delete');
+        Route::get('localize/{Service}', [ServiceController::class, 'getLocalize'])->name('services.getLocalize');
+        Route::post('localize/{Service}', [ServiceController::class, 'postLocalize'])->name('services.postLocalize');
     });
 
-    Route::prefix('sub-services')->group(function (): void {
-        Route::get('all/{Service}', [SubServiceController::class, 'getAdminAll'])->name('subServices.all');
-        Route::get('new/{Service}', [SubServiceController::class, 'getAdminNew'])->name('subServices.getNew');
-        Route::post('new/{Service}', [SubServiceController::class, 'postAdminNew'])->name('subServices.postNew');
-        Route::get('edit/{SubService}', [SubServiceController::class, 'getAdminEdit'])->name('subServices.getEdit');
-        Route::post('edit/{SubService}', [SubServiceController::class, 'postAdminEdit'])->name('subServices.postEdit');
-        Route::get('delete/{SubService}', [SubServiceController::class, 'delete'])->name('subServices.delete');
-    });
 
     Route::prefix('categories')->group(function (): void {
         Route::get('all', [CategoryController::class, 'getAdminAll'])->name('categories.all');
@@ -70,6 +64,8 @@ Route::group(['prefix' => 'dashboard', 'middleware' => [isAdmin::class], 'as' =>
         Route::get('edit/{Category}', [CategoryController::class, 'getAdminEdit'])->name('categories.getEdit');
         Route::post('edit/{Category}', [CategoryController::class, 'postAdminEdit'])->name('categories.postEdit');
         Route::get('delete/{Category}', [CategoryController::class, 'delete'])->name('categories.delete');
+        Route::get('localize/{Category}', [CategoryController::class, 'getLocalize'])->name('categories.getLocalize');
+        Route::post('localize/{Category}', [CategoryController::class, 'postLocalize'])->name('categories.postLocalize');
     });
 
     Route::prefix('projects')->group(function (): void {
@@ -80,6 +76,8 @@ Route::group(['prefix' => 'dashboard', 'middleware' => [isAdmin::class], 'as' =>
         Route::post('edit/{Project}', [ProjectController::class, 'postAdminEdit'])->name('projects.postEdit');
         Route::get('delete-image/{id}', [ProjectController::class, 'deleteProjectImage'])->name('projectImage.delete');
         Route::get('delete/{Project}', [ProjectController::class, 'delete'])->name('projects.delete');
+        Route::get('localize/{Project}', [ProjectController::class, 'getLocalize'])->name('projects.getLocalize');
+        Route::post('localize/{Project}', [ProjectController::class, 'postLocalize'])->name('projects.postLocalize');
 
     });
 
@@ -90,6 +88,8 @@ Route::group(['prefix' => 'dashboard', 'middleware' => [isAdmin::class], 'as' =>
         Route::get('edit/{Blog}', [BlogController::class, 'getAdminEdit'])->name('blogs.getEdit');
         Route::post('edit/{Blog}', [BlogController::class, 'postAdminEdit'])->name('blogs.postEdit');
         Route::get('delete/{Blog}', [BlogController::class, 'delete'])->name('blogs.delete');
+        Route::get('localize/{Blog}', [BlogController::class, 'getLocalize'])->name('blogs.getLocalize');
+        Route::post('localize/{Blog}', [BlogController::class, 'postLocalize'])->name('blogs.postLocalize');
     });
 });
 Route::post('api/upload/{project}', [ProjectController::class, 'uploadGallery'])->name('admin.projects.uploadGallery');
