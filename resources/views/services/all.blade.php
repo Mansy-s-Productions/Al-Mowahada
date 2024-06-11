@@ -39,7 +39,7 @@
                 <div class="col-lg-4 col-md-6 grid-item grid-sizer {{$Service->main_category}}">
                     <div class="services__item-two shine__animate-item">
                         <div class="services__thumb-two">
-                            <img src="{{ $Service->imagePath }}" alt="{{ $Service->title }}">
+                            <img src="{{ asset($Service->imagePath) }}" alt="{{ $Service->title }}">
                         </div>
                         <div class="services__content-two">
                             <h4 class="title">{{ $Service->title }}</h4>
