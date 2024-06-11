@@ -369,3 +369,12 @@
         }
     }
 }
+
+
+:root {
+    --swiper-navigation-size: 20px;
+}
+.slider__nav swiper-button-next, .swiper-button-next, .swiper-button-prev{
+    width: 45px;
+    height: 45px;
+}
